@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "royfw-skills",
+  "name": "venvia-skills",
   "description": "Roy Chuang's public Claude Code skills.",
   "owner": {
     "name": "Roy Chuang"
@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "git-persona-sheet",
-      "description": "Profile a developer from git commit history against the five Cherny archetypes (Prototyper / Builder / Sweeper / Grower / Maintainer), score 0–10, and render an interactive inline-SVG radar build sheet across one or more repos.",
+      "description": "Profile a developer from git commit history against the five Cherny archetypes (Prototyper / Builder / Sweeper / Grower / Maintainer), score 0-10, and render an interactive inline-SVG radar build sheet across one or more repos.",
       "author": {
         "name": "Roy Chuang"
       },

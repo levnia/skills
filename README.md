@@ -1,4 +1,4 @@
-# royfw/skills
+# venvia/skills
 
 Roy Chuang's public [Claude Code](https://claude.com/claude-code) skills, packaged
 as a plugin marketplace.
@@ -8,8 +8,8 @@ as a plugin marketplace.
 Add the marketplace, then install the plugins you want:
 
 ```
-/plugin marketplace add royfw/skills
-/plugin install git-persona-sheet@royfw-skills
+/plugin marketplace add venvia/skills
+/plugin install git-persona-sheet@venvia-skills
 ```
 
 ## Skills

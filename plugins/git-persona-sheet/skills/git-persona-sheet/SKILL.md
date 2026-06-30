@@ -4,6 +4,9 @@ description: Use when the user wants to profile a developer from git commit hist
 license: MIT
 metadata:
   version: "0.1.0"
+  publish: [public]
+  summary: "Profile a developer from git commit history against the five Cherny archetypes (Prototyper / Builder / Sweeper / Grower / Maintainer), score 0-10, and render an interactive inline-SVG radar build sheet across one or more repos."
+  category: development
 allowed-tools:
   - Bash
   - Read

@@ -28,7 +28,7 @@ comparing them is the most interesting use.
 
 ## Use
 
-Install via the [royfw/skills](../../) marketplace, then in Claude Code run
+Install via the [venvia/skills](../../) marketplace, then in Claude Code run
 **`/git-persona-sheet`**, or ask *"analyze my commits as the five archetypes"*.
 
 You can also render directly, without Claude:
