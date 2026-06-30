@@ -1,0 +1,33 @@
+{
+  "title": "同一個人，<span style=\"color:#E8B04B\">兩種</span>原型<span style=\"color:#5BC0C7\">面孔</span>",
+  "prompt": "git log --author=roy {deploy-toolkit, devops-configure} | classify --framework=cherny-5",
+  "subtitle": "<strong style=\"color:#E8B04B\">deploy-toolkit</strong>（基礎設施）把你照成 <strong>Builder 尖峰</strong>；<strong style=\"color:#5BC0C7\">devops-configure</strong>（有真實用戶的產品層）一換舞台，<strong>Grower 與 Prototyper 就亮了起來</strong>。核心始終是 Builder + Maintainer。",
+  "axes": ["Builder", "Maintainer", "Sweeper", "Prototyper", "Grower"],
+  "repos": [
+    {
+      "name": "deploy-toolkit",
+      "color": "#E8B04B",
+      "meta": "<b>159</b> commits · 2026-02 → 06<br>feat <b>59</b> · fix <b>26</b> · docs <b>29</b> · 共用 CI/CD 引擎",
+      "scores": { "Builder": 9, "Maintainer": 7, "Sweeper": 6, "Prototyper": 5, "Grower": 4 }
+    },
+    {
+      "name": "devops-configure",
+      "color": "#5BC0C7",
+      "meta": "<b>55</b> commits · 2026-05 → 06<br>docs <b>34</b> · feat <b>7</b> · fix <b>6</b> · Claude Code skill",
+      "scores": { "Builder": 6, "Maintainer": 7, "Sweeper": 6, "Prototyper": 6, "Grower": 7 }
+    }
+  ],
+  "rows": [
+    { "axis": "Builder", "zh": "產品建構者", "note": "引擎重、文件層輕。deploy-toolkit 是有測試的 shell／CI 引擎；devops-configure 以 docs 為主（<code>34 docs vs 7 feat</code>）。" },
+    { "axis": "Maintainer", "zh": "系統守護者", "note": "兩邊都穩。devops-configure 多了一整串 <code>sync deploy-toolkit to v0.x</code> 的版本對齊紀律。" },
+    { "axis": "Sweeper", "zh": "系統整頓者", "note": "整頓力道相當：<code>split into tools/</code>、<code>simplify to single-file</code>、<code>localize to English</code>。" },
+    { "axis": "Prototyper", "zh": "原型探索者", "tag": "+1 在 devops-cfg", "note": "devops-configure 有真正的概念 pivot：<code>pivot focus from deploy execution to project configuration</code>。" },
+    { "axis": "Grower", "zh": "市場成長者", "tag": "+3 在 devops-cfg", "note": "最大反差。devops-configure 面向真實用戶：<code>address 8 production feedback gaps</code>、加 Claude Code／Copilot／Cursor 安裝說明。" }
+  ],
+  "combined": [
+    "核心人格是 <strong>Builder + Maintainer</strong>——兩個 repo 都穩，這是不會變的底色。",
+    "deploy-toolkit 把 Builder 拉到尖峰；devops-configure 把潛伏的 <strong>Grower（4→7）</strong>與 <strong>Prototyper（5→6）</strong>點亮——<strong>原型分數是「舞台」決定的，不是能力上限。</strong>",
+    "組合起來：<strong>先把基礎設施建穩，再用面向人的產品層收斂使用體驗</strong>。"
+  ],
+  "caveat": "<strong>讀法：</strong>分數是「在這些 repo 裡觀察到的傾向」，不是人的絕對值。重點在<strong>同一個人換 repo 就換形狀</strong>。"
+}
