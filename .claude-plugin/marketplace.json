@@ -32,6 +32,15 @@
       },
       "category": "development",
       "source": "./plugins/changeset-release"
+    },
+    {
+      "name": "start-ts-by",
+      "description": "Scaffold new projects from git repo or local folder templates with the start-ts-by CLI — template source formats, file filtering, package renaming, and post-create commands.",
+      "author": {
+        "name": "Roy Chuang"
+      },
+      "category": "development",
+      "source": "./plugins/start-ts-by"
     }
   ]
 }
