@@ -1,0 +1,28 @@
+# Version (stable channel) — runs when a PR into release/stable is merged.
+# Validated in royfw/apps/rfjs. Generic; nothing project-specific to adapt.
+#
+# pull_request_target + types:[closed] also fires on close-without-merge —
+# the `if: merged == true` guard filters that. The workflow definition is read
+# from the base branch, so this file must exist on release/stable (land it on
+# main first, then cut/update the release branch from main).
+name: Version (release/stable)
+
+on:
+  pull_request_target:
+    branches: [release/stable]
+    types: [closed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  version:
+    if: github.event.pull_request.merged == true
+    # rf-devops will be replaced by github-toolkit — repoint when it lands.
+    uses: royfw/rf-devops/.github/workflows/_changesets-version-channel-turbo.yml@main
+    secrets:
+      GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+    with:
+      ref: release/stable
+      channel: stable

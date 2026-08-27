@@ -1,0 +1,7 @@
+{
+  "name": "github-gitlab-sync",
+  "description": "Wire a GitHub-hosted repo to deploy through GitLab CI: mirror the repo, trigger the GitLab pipeline from GitHub Actions via royfw/gitlab-sync-action, and reflect the pipeline result back into the GitHub check.",
+  "author": {
+    "name": "Roy Chuang"
+  }
+}

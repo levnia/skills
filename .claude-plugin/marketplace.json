@@ -14,6 +14,24 @@
       },
       "category": "development",
       "source": "./plugins/git-persona-sheet"
+    },
+    {
+      "name": "github-gitlab-sync",
+      "description": "Wire a GitHub-hosted repo to deploy through GitLab CI: mirror the repo, trigger the GitLab pipeline from GitHub Actions via royfw/gitlab-sync-action, and reflect the pipeline result back into the GitHub check.",
+      "author": {
+        "name": "Roy Chuang"
+      },
+      "category": "development",
+      "source": "./plugins/github-gitlab-sync"
+    },
+    {
+      "name": "changeset-release",
+      "description": "Set up and debug the GitHub-native npm release path — Changesets versioning, release branches and prerelease channels, GitHub Actions version/publish workflows, dist-tags, and npm publish troubleshooting.",
+      "author": {
+        "name": "Roy Chuang"
+      },
+      "category": "development",
+      "source": "./plugins/changeset-release"
     }
   ]
 }

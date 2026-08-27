@@ -41,7 +41,7 @@ schemas) lives in `references/` and is pulled in on demand via "REQUIRED BACKGRO
 error-prone for an LLM (geometry, git log parsing) is pushed into `scripts/`; judgment stays
 in the prompt.
 
-## git-persona-sheet (the only plugin so far)
+## git-persona-sheet
 
 Pipeline: `scripts/collect-commits.sh <repo> [author]` dumps git signals (type distribution,
 hot dirs, full subjects) → Claude scores 0–10 against `references/archetypes.md` → writes a

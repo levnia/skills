@@ -1,0 +1,39 @@
+# Version (prerelease channels) — runs when a PR into release/alpha|beta|rc is
+# merged. The channel is derived from the base branch name (release/<channel>),
+# and the reusable workflow enters changeset pre-mode for that channel.
+# Validated in royfw/apps/rfjs. Generic; nothing project-specific to adapt.
+name: Version (prerelease branches)
+
+on:
+  pull_request_target:
+    branches:
+      - release/alpha
+      - release/beta
+      - release/rc
+    types: [closed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    outputs:
+      channel: ${{ steps.ch.outputs.channel }}
+    if: github.event.pull_request.merged == true
+    steps:
+      - id: ch
+        run: |
+          REF="${{ github.event.pull_request.base.ref }}"
+          echo "channel=${REF#release/}" >> "$GITHUB_OUTPUT"
+
+  version:
+    needs: resolve
+    # rf-devops will be replaced by github-toolkit — repoint when it lands.
+    uses: royfw/rf-devops/.github/workflows/_changesets-version-channel-turbo.yml@main
+    secrets:
+      GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+    with:
+      ref: ${{ github.event.pull_request.base.ref }}
+      channel: ${{ needs.resolve.outputs.channel }}

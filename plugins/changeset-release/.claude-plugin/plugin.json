@@ -1,0 +1,7 @@
+{
+  "name": "changeset-release",
+  "description": "Set up and debug the GitHub-native npm release path — Changesets versioning, release branches and prerelease channels, GitHub Actions version/publish workflows, dist-tags, and npm publish troubleshooting.",
+  "author": {
+    "name": "Roy Chuang"
+  }
+}

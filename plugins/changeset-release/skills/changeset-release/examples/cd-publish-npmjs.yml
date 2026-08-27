@@ -1,0 +1,79 @@
+# CD NPM Publish — manual gate. Validated in royfw/apps/rfjs.
+#
+# Publish bumped packages to npm from a versioned branch. Trigger from the
+# Actions tab → "Run workflow" (never push-triggered).
+#
+# Why plain `changeset publish` and no `changeset status` guard: versioning
+# consumes the changesets, so on a versioned branch `changeset status` reports
+# "no releases" and any job guarded on it silently skips (this is the GitLab
+# toolkit publish bug). Plain `changeset publish` instead publishes every public
+# package whose package.json version is not yet on npm, and skips private ones —
+# `"private": true` is the ONLY hold-back it honors (config.ignore is not).
+#
+# Adapt for your project (marked ⬅ below): default publish ref, Node version,
+# packages-only build script.
+name: CD NPM Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch to publish from (must carry the bumped versions)
+        type: string
+        default: publish/npmjs # ⬅ or main / release/stable — keep a long-lived publish branch == main, or retire it and pass the versioned branch here
+      channel:
+        description: dist-tag — stable publishes latest; others publish under that tag
+        type: choice
+        options: [stable, alpha, beta, rc]
+        default: stable
+
+permissions:
+  contents: write # push the git tags changeset publish creates
+
+# Serialize publishes so two runs never race the registry/tags.
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ${{ inputs.ref }}
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.ref }}
+          token: ${{ secrets.GIT_TOKEN }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22 # ⬅ match the project
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build packages
+        run: pnpm build:packages # ⬅ packages-only build script
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Pre-mode note: if .changeset/pre.json exists, run plain
+          # `changeset publish` — the pre tag wins and --tag is not allowed.
+          if [ "${{ inputs.channel }}" = "stable" ]; then
+            pnpm changeset publish
+          else
+            pnpm changeset publish --tag "${{ inputs.channel }}"
+          fi
+
+      - name: Push git tags
+        run: git push origin --tags

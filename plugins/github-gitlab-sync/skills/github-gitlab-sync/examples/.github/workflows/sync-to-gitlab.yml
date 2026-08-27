@@ -1,0 +1,60 @@
+name: Sync to GitLab & Deploy
+
+# For a repo hosted on GitHub but deployed via GitLab (devops-toolkit).
+# Mirrors the pushed branch to the GitLab project and — only for branches GitLab
+# actually has a job for — triggers its pipeline and reflects pass/fail back here.
+#
+# The bridge is for DEPLOY. npm version/publish run GitHub-native (see the
+# changeset-release skill), so release/* branches don't belong here. `main` is
+# mirrored for fidelity but NOT triggered: GitLab has no job for it, and
+# triggering a job-less branch returns 400 "No stages / jobs". See Pitfalls in
+# ../../github-sync-reference.md.
+on:
+  push:
+    branches:
+      - main          # mirror-only (not triggered)
+      - deploy/dev
+      - deploy/stage
+
+# One in-flight run per branch so two pushes don't race the same GitLab branch.
+concurrency:
+  group: gitlab-sync-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # full history for a faithful mirror push
+
+      - name: Sync to GitLab and trigger pipeline
+        id: sync
+        uses: royfw/gitlab-sync-action@v1
+        with:
+          gitlab_push_host: ${{ secrets.GITLAB_PUSH_HOST }}   # e.g. gitlab.example.com
+          gitlab_project_path: my-namespace/my-project        # GitLab project path
+          gitlab_project_id: "12345"                          # numeric project id
+          gitlab_ref: ${{ github.ref_name }}                  # branch name is the contract
+          deploy_env: ${{ (github.ref_name == 'deploy/stage' && 'stage') || 'dev' }}
+          # Trigger/wait ONLY for deploy/* (the branches GitLab has a job for).
+          # main is mirror-only → no trigger → no empty-pipeline 400.
+          trigger_pipeline: ${{ startsWith(github.ref_name, 'deploy/') }}
+          wait_for_pipeline: ${{ startsWith(github.ref_name, 'deploy/') }}  # GitHub job mirrors GitLab pass/fail
+          # One PAT carrying write_repository + read_api covers push + poll;
+          # the trigger token is a separate token type.
+          gitlab_push_token: ${{ secrets.GITLAB_API_TOKEN }}
+          gitlab_trigger_token: ${{ secrets.GITLAB_TRIGGER_TOKEN }}
+          gitlab_api_token: ${{ secrets.GITLAB_API_TOKEN }}
+
+      - name: Report pipeline result
+        # Pass step outputs via env (not inline ${{ }}) so nothing is interpolated
+        # straight into the shell — the safe pattern to copy into your own repo.
+        env:
+          PIPELINE_ID: ${{ steps.sync.outputs.pipeline_id }}
+          PIPELINE_STATUS: ${{ steps.sync.outputs.pipeline_status }}
+          PIPELINE_URL: ${{ steps.sync.outputs.pipeline_web_url }}
+        run: |
+          echo "Pipeline $PIPELINE_ID -> $PIPELINE_STATUS"
+          echo "$PIPELINE_URL"
