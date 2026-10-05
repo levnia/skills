@@ -1,0 +1,7 @@
+{
+  "name": "venvia-devops",
+  "description": "CI/CD bridging: mirror a GitHub repo to GitLab and run its deploy pipeline from GitHub Actions, with the result reflected back as a GitHub check.",
+  "author": {
+    "name": "Roy Chuang"
+  }
+}

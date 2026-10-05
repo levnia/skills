@@ -7,40 +7,40 @@
   },
   "plugins": [
     {
-      "name": "git-persona-sheet",
-      "description": "Profile a developer from git commit history against the five Cherny archetypes (Prototyper / Builder / Sweeper / Grower / Maintainer), score 0-10, and render an interactive inline-SVG radar build sheet across one or more repos.",
+      "name": "venvia-ui",
+      "description": "React/Next.js back-office UI design guidance (fleet-ui): token contract, component recipes, workspace shell, page archetypes, and optional finance, map and workflow modules.",
       "author": {
         "name": "Roy Chuang"
       },
       "category": "development",
-      "source": "./plugins/git-persona-sheet"
+      "source": "./plugins/venvia-ui"
     },
     {
-      "name": "github-gitlab-sync",
-      "description": "Wire a GitHub-hosted repo to deploy through GitLab CI: mirror the repo, trigger the GitLab pipeline from GitHub Actions via royfw/gitlab-sync-action, and reflect the pipeline result back into the GitHub check.",
+      "name": "venvia-js",
+      "description": "JavaScript/TypeScript ecosystem tools: the @rfjs package catalog and template selection, start-ts-by project scaffolding, and Changesets-based npm releases on GitHub Actions.",
       "author": {
         "name": "Roy Chuang"
       },
       "category": "development",
-      "source": "./plugins/github-gitlab-sync"
+      "source": "./plugins/venvia-js"
     },
     {
-      "name": "changeset-release",
-      "description": "Set up and debug the GitHub-native npm release path — Changesets versioning, release branches and prerelease channels, GitHub Actions version/publish workflows, dist-tags, and npm publish troubleshooting.",
+      "name": "venvia-dev",
+      "description": "Language-agnostic dev tools: self-contained HTML visual aids for proposals and option comparisons, and developer archetype profiles from git history.",
       "author": {
         "name": "Roy Chuang"
       },
       "category": "development",
-      "source": "./plugins/changeset-release"
+      "source": "./plugins/venvia-dev"
     },
     {
-      "name": "start-ts-by",
-      "description": "Scaffold new projects from git repo or local folder templates with the start-ts-by CLI — template source formats, file filtering, package renaming, and post-create commands.",
+      "name": "venvia-devops",
+      "description": "CI/CD bridging: mirror a GitHub repo to GitLab and run its deploy pipeline from GitHub Actions, with the result reflected back as a GitHub check.",
       "author": {
         "name": "Roy Chuang"
       },
       "category": "development",
-      "source": "./plugins/start-ts-by"
+      "source": "./plugins/venvia-devops"
     }
   ]
 }

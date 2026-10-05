@@ -1,0 +1,7 @@
+{
+  "name": "venvia-js",
+  "description": "JavaScript/TypeScript ecosystem tools: the @rfjs package catalog and template selection, start-ts-by project scaffolding, and Changesets-based npm releases on GitHub Actions.",
+  "author": {
+    "name": "Roy Chuang"
+  }
+}

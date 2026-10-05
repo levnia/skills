@@ -1,7 +1,0 @@
-{
-  "name": "start-ts-by",
-  "description": "Scaffold new projects from git repo or local folder templates with the start-ts-by CLI — template source formats, file filtering, package renaming, and post-create commands.",
-  "author": {
-    "name": "Roy Chuang"
-  }
-}

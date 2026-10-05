@@ -1,7 +1,0 @@
-{
-  "name": "git-persona-sheet",
-  "description": "Profile a developer from git commit history against the five Cherny archetypes (Prototyper / Builder / Sweeper / Grower / Maintainer), score 0-10, and render an interactive inline-SVG radar build sheet across one or more repos.",
-  "author": {
-    "name": "Roy Chuang"
-  }
-}
