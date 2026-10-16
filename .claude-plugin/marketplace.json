@@ -1,46 +1,46 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "levnia-skills",
+  "name": "orelvo-skills",
   "description": "Roy Chuang's public Claude Code skills.",
   "owner": {
     "name": "Roy Chuang"
   },
   "plugins": [
     {
-      "name": "levnia-ui",
+      "name": "orelvo-ui",
       "description": "React/Next.js back-office UI design guidance (fleet-ui): token contract, component recipes, workspace shell, page archetypes, and optional finance, map and workflow modules.",
       "author": {
         "name": "Roy Chuang"
       },
       "category": "development",
-      "source": "./plugins/levnia-ui"
+      "source": "./plugins/orelvo-ui"
     },
     {
-      "name": "levnia-js",
+      "name": "orelvo-js",
       "description": "JavaScript/TypeScript ecosystem tools: the @rfjs package catalog and template selection, start-ts-by project scaffolding, and Changesets-based npm releases on GitHub Actions.",
       "author": {
         "name": "Roy Chuang"
       },
       "category": "development",
-      "source": "./plugins/levnia-js"
+      "source": "./plugins/orelvo-js"
     },
     {
-      "name": "levnia-dev",
+      "name": "orelvo-dev",
       "description": "Language-agnostic dev tools: self-contained HTML visual aids for proposals and option comparisons, and developer archetype profiles from git history.",
       "author": {
         "name": "Roy Chuang"
       },
       "category": "development",
-      "source": "./plugins/levnia-dev"
+      "source": "./plugins/orelvo-dev"
     },
     {
-      "name": "levnia-devops",
+      "name": "orelvo-devops",
       "description": "CI/CD bridging: mirror a GitHub repo to GitLab and run its deploy pipeline from GitHub Actions, with the result reflected back as a GitHub check.",
       "author": {
         "name": "Roy Chuang"
       },
       "category": "development",
-      "source": "./plugins/levnia-devops"
+      "source": "./plugins/orelvo-devops"
     }
   ]
 }

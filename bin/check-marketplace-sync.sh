@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # check-marketplace-sync.sh — 驗證 marketplace 的同步契約。
 #
-# 結構：每個 plugin 是一組「會一起安裝」的 skill（例如 levnia-ui、levnia-js），
+# 結構：每個 plugin 是一組「會一起安裝」的 skill（例如 orelvo-ui、orelvo-js），
 # 安裝後 skill 以 `<plugin>:<skill>` 出現。契約：
 #
 #   對每個 plugin：

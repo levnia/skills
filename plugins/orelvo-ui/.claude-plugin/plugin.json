@@ -1,5 +1,5 @@
 {
-  "name": "levnia-ui",
+  "name": "orelvo-ui",
   "description": "React/Next.js back-office UI design guidance (fleet-ui): token contract, component recipes, workspace shell, page archetypes, and optional finance, map and workflow modules.",
   "author": {
     "name": "Roy Chuang"

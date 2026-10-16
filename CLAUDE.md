@@ -4,13 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A **Claude Code plugin marketplace** (`levnia-skills`) publishing Roy Chuang's public skills.
+A **Claude Code plugin marketplace** (`orelvo-skills`) publishing Roy Chuang's public skills.
 It is a *content* repo — there is no build, test, lint, or CI step and no `package.json`.
 The deliverables are skill definitions and the helper scripts they ship. Installed via:
 
 ```
-/plugin marketplace add levnia/skills
-/plugin install <group>@levnia-skills     # levnia-ui / levnia-js / levnia-dev / levnia-devops
+/plugin marketplace add orelvo/skills
+/plugin install <group>@orelvo-skills     # orelvo-ui / orelvo-js / orelvo-dev / orelvo-devops
 ```
 
 ## Public vs. private: relationship to royfw/skills
@@ -29,13 +29,13 @@ are needed together*, so an environment can install only the groups it uses:
 
 | Plugin | Holds |
 |---|---|
-| `levnia-ui` | React back-office UI design guidance |
-| `levnia-js` | JavaScript/TypeScript ecosystem tools (@rfjs, start-ts-by, npm releases) |
-| `levnia-dev` | language-agnostic dev tools (proposal visuals, git persona sheets) |
-| `levnia-devops` | CI/CD bridging between GitHub and GitLab |
+| `orelvo-ui` | React back-office UI design guidance |
+| `orelvo-js` | JavaScript/TypeScript ecosystem tools (@rfjs, start-ts-by, npm releases) |
+| `orelvo-dev` | language-agnostic dev tools (proposal visuals, git persona sheets) |
+| `orelvo-devops` | CI/CD bridging between GitHub and GitLab |
 
 A new skill joins the group whose environments always need it alongside the others; create a
-new `levnia-<topic>` group only when no existing group fits that test.
+new `orelvo-<topic>` group only when no existing group fits that test.
 
 The layout is dictated by Claude Code's plugin spec — adding a plugin means creating these
 exact files, not just any folder:

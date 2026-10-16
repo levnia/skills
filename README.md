@@ -1,4 +1,4 @@
-# levnia/skills
+# orelvo/skills
 
 Roy Chuang's public [Claude Code](https://claude.com/claude-code) skills, packaged
 as a plugin marketplace.
@@ -8,29 +8,29 @@ as a plugin marketplace.
 Add the marketplace, then install the groups you want:
 
 ```
-/plugin marketplace add levnia/skills
-/plugin install levnia-ui@levnia-skills
-/plugin install levnia-js@levnia-skills
-/plugin install levnia-dev@levnia-skills
-/plugin install levnia-devops@levnia-skills
+/plugin marketplace add orelvo/skills
+/plugin install orelvo-ui@orelvo-skills
+/plugin install orelvo-js@orelvo-skills
+/plugin install orelvo-dev@orelvo-skills
+/plugin install orelvo-devops@orelvo-skills
 ```
 
 ## Skills
 
 Skills are grouped into plugins by where they are needed, so each environment can
 install only the groups it uses. Installed skills appear as `<plugin>:<skill>`
-(e.g. `levnia-ui:fleet-ui`).
+(e.g. `orelvo-ui:fleet-ui`).
 
 | Plugin | Skill | What it does |
 |--------|-------|--------------|
-| levnia-ui | fleet-ui | 結構統一、皮膚自訂的 React/Next.js 後台 UI 設計指南——token 契約、元件配方、工作區外殼、頁面原型，與金融/地圖/流程選配模組。 |
-| levnia-js | changeset-release | Set up and debug the GitHub-native npm release path — Changesets versioning, release branches and prerelease channels, GitHub Actions version/publish workflows, dist-tags, and npm publish troubleshooting. |
-| levnia-js | rfjs-packages | First-party @rfjs/* npm package catalog — choosing libraries for filtering, JWT, retries, type conversion, object manipulation, and Postgres utilities, plus the template build-config factories. |
-| levnia-js | rfjs-templates | Pick the right @rfjs start-ts-by template — bundler, framework, ORM, and simple vs. monorepo layout — for a new TypeScript/JavaScript project. |
-| levnia-js | start-ts-by | Scaffold new projects from git repo or local folder templates with the start-ts-by CLI — template source formats, file filtering, package renaming, and post-create commands. |
-| levnia-dev | git-persona-sheet | Profile a developer from git commit history against the five Cherny archetypes (Prototyper / Builder / Sweeper / Grower / Maintainer), score 0-10, and render an interactive inline-SVG radar build sheet across one or more repos. |
-| levnia-dev | proposal-visual-aid | 在提案、方案比較、路線圖或 UI/流程說明時,產出風格統一的自包含 HTML 視覺輔助文件。 |
-| levnia-devops | github-gitlab-sync | Wire a GitHub-hosted repo to deploy through GitLab CI: mirror the repo, trigger the GitLab pipeline from GitHub Actions via royfw/gitlab-sync-action, and reflect the pipeline result back into the GitHub check. |
+| orelvo-ui | fleet-ui | 結構統一、皮膚自訂的 React/Next.js 後台 UI 設計指南——token 契約、元件配方、工作區外殼、頁面原型，與金融/地圖/流程選配模組。 |
+| orelvo-js | changeset-release | Set up and debug the GitHub-native npm release path — Changesets versioning, release branches and prerelease channels, GitHub Actions version/publish workflows, dist-tags, and npm publish troubleshooting. |
+| orelvo-js | rfjs-packages | First-party @rfjs/* npm package catalog — choosing libraries for filtering, JWT, retries, type conversion, object manipulation, and Postgres utilities, plus the template build-config factories. |
+| orelvo-js | rfjs-templates | Pick the right @rfjs start-ts-by template — bundler, framework, ORM, and simple vs. monorepo layout — for a new TypeScript/JavaScript project. |
+| orelvo-js | start-ts-by | Scaffold new projects from git repo or local folder templates with the start-ts-by CLI — template source formats, file filtering, package renaming, and post-create commands. |
+| orelvo-dev | git-persona-sheet | Profile a developer from git commit history against the five Cherny archetypes (Prototyper / Builder / Sweeper / Grower / Maintainer), score 0-10, and render an interactive inline-SVG radar build sheet across one or more repos. |
+| orelvo-dev | proposal-visual-aid | 在提案、方案比較、路線圖或 UI/流程說明時,產出風格統一的自包含 HTML 視覺輔助文件。 |
+| orelvo-devops | github-gitlab-sync | Wire a GitHub-hosted repo to deploy through GitLab CI: mirror the repo, trigger the GitLab pipeline from GitHub Actions via royfw/gitlab-sync-action, and reflect the pipeline result back into the GitHub check. |
 
 ## License
 
